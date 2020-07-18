@@ -13,17 +13,21 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+
 Route::get('/', function () {
-    return view('frontend.welcome', ['name' => '大帥哥']);
-});
+    return view('frontend.index');
+})->name('home');
 
-Route::get('/home', function () {
-    return view('frontend.home');
-});
+Route::get('/about', function () {
+    return view('frontend.about');
+})->name('about');
 
-Route::get('post/{id}', 'PostController@show');
 
-Route::get('users/{name?}', function ($name = 'Chase')
-{
-    return 'Hello, I am ' .$name;
-});
+Route::get('/products', function () {
+    return view('frontend.products');
+})->name('products');
+
+
+Route::get('/store', function () {
+    return view('frontend.store');
+})->name('store');
