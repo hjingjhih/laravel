@@ -31,3 +31,11 @@ Route::get('/products', function () {
 Route::get('/store', function () {
     return view('frontend.store');
 })->name('store');
+
+
+// GET product的要求轉發給ProductController的index方法處理
+Route::get('product', 'ProductController@index');
+// GET product{id}的要求轉發給ProductController的show方法處理，同時會傳遞參數id
+Route::get('product/{id}', 'ProductController@show');
+// POST product的要求轉發給ProductController的store方法處理
+Route::post('product', 'ProductController@store');
